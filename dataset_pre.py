@@ -5,7 +5,7 @@ print('Libraries Imported')
 
 
 # get the raw dataset
-dataset = pd.read_csv('../datasets/student-por.csv', header = None)
+dataset = pd.read_csv('./static/datasets/student-por.csv', header = None)
 print("csv has been read")
 
 # remove double quotes
@@ -17,7 +17,7 @@ newDatasets = dataset[0].str.split(";", n = 32, expand = True)
 print("double quotes removed and data was separated")
 
 # open new csv file to save clean one
-outfile = open("../datasets/student-por-clean.csv", "w")
+outfile = open("./static/datasets/student-por-clean.csv", "w")
 writer = csv.writer(outfile)
 
 # dropping passed columns
