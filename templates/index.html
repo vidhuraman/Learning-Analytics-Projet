@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full_bg">
 <head>
     <meta charset="UTF-8">
     <title>question form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='./css/bootstrap.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}"/>
 </head>
-<body class="bg">
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="{{ url_for('main') }}">Menu</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,13 +25,15 @@
   </div>
 </nav>
 
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col align-self-center">
-                <p><a href="{{ url_for('dataForm') }}">predict your grad</a></p>
+
+        <section class="content">
+            <div class="hero-inner">
+                <img class="logo" src="{{ url_for('static', filename='./images/logo.png') }}" alt="logo">
+                <h1>Welcome to i-grade</h1>
+                <h2>predict your grade before doing anything</h2>
+                <a href="{{ url_for('dataForm') }}" class="btn">Go ahead...</a>
             </div>
-        </div>
-    </div>
+        </section>
 
 
 
