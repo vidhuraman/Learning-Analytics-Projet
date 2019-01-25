@@ -1,3 +1,4 @@
+import pickle
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
@@ -12,7 +13,7 @@ from sklearn.neighbors import KNeighborsClassifier
 print("libraries imported")
 
 #read data
-df = pd.read_csv("../datasets/dataset.csv", engine='python',sep=',')
+df = pd.read_csv("../datasets/dataset_main.csv", engine='python',sep=',')
 
 
 
@@ -22,16 +23,12 @@ labels = []
 
 for grade in grades:
     if grade >=17:
-        df['evaluation'] = "very good"
         labels.append('very good')
     elif grade < 17 and grade >= 15:
-        df['evaluation'] = "good"
         labels.append('good')
     elif grade < 15 and grade >= 10:
-        df['evaluation'] = "avarage"
-        labels.append('avarage')
+        labels.append('average')
     elif grade < 10:
-        df['evaluation'] = "bad"
         labels.append('bad')
 
 #encoding the data
@@ -42,11 +39,10 @@ for item in df:
 
 enc_labels = enc.fit_transform(labels)
 
+df = df.values
+
 #preparing test data
-X_train, X_test, y_train, y_test = train_test_split(df,enc_labels, stratify=enc_labels,random_state=0,test_size=0.20)
-
-
-print(df.head(3))
+X_train, X_test, y_train, y_test = train_test_split(df[:,:16],enc_labels, stratify=enc_labels,random_state=0,test_size=0.20)
 
 #report func
 def report(clf, X_train, y_train, X_test, y_test,M_name):
@@ -66,3 +62,10 @@ report(lr, X_train, y_train, X_test, y_test,"LogisticRegressio")
 
 knn = KNeighborsClassifier()
 report(knn, X_train, y_train, X_test, y_test, "KNeighborsClassifier")
+
+validation_data = [[0,1,2,1,2,1,2,2,1,2,1,1,2,1,2,1]]
+
+result =knn.predict(validation_data)
+
+print("the predicted grade is {}".format(result[0]))
+# save model with picklee
