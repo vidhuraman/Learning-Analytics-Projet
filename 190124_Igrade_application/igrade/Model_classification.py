@@ -65,7 +65,7 @@ knn = KNeighborsClassifier()
 report(knn, X_train, y_train, X_test, y_test, "KNeighborsClassifier")
 
 validation_data = [[1,1,2,1,2,1,2,2,1,2,1,1,2,1,2,1]]
-
+print(X_train)
 def predictFunction(data_predicit):
     result =lr.predict(data_predicit)
     print("the predicted grade is {}".format(result[0]))

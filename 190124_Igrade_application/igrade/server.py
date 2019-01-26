@@ -32,10 +32,10 @@ def dataForm():
                 or request.form['studyTime'] == 'level your study time':
             error = 'select all field.'
         else:
-            studentInfo[0] = sex_con(request.form['sex'])
-            studentInfo[1] = age_con(request.form['age'])
-            studentInfo[2] = travelTime_con(request.form['travelTime'])
-            studentInfo[3] = studyTime_con(request.form['studyTime'])
+            studentInfo[0] = convertor(request.form['sex'])
+            studentInfo[1] = convertor(request.form['age'])
+            studentInfo[2] = convertor(request.form['travelTime'])
+            studentInfo[3] = convertor(request.form['studyTime'])
             return redirect(url_for('prediction'))
     return render_template('question_form.html', error=error,sex=sex, age=age,travelTime=travelTime, studyTime=studyTime)
 
