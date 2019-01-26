@@ -13,7 +13,7 @@ from sklearn.neighbors import KNeighborsClassifier
 print("libraries imported")
 
 #read data
-df = pd.read_csv("../datasets/dataset_main.csv", engine='python',sep=',')
+df = pd.read_csv("./static/datasets/dataset_main.csv", engine='python',sep=',')
 
 
 
@@ -61,11 +61,15 @@ lr = LogisticRegression()
 report(lr, X_train, y_train, X_test, y_test,"LogisticRegressio")
 
 knn = KNeighborsClassifier()
-report(knn, X_train, y_train, X_test, y_test, "KNeighborsClassifier")
+# report(knn, X_train, y_train, X_test, y_test, "KNeighborsClassifier")
 
 validation_data = [[0,1,2,1,2,1,2,2,1,2,1,1,2,1,2,1]]
 
-result =knn.predict(validation_data)
+def predictFunction(data_predicit):
+    result =lr.predict(validation_data)
+    print("the predicted grade is {}".format(result[0]))
 
-print("the predicted grade is {}".format(result[0]))
-# save model with picklee
+
+predictFunction(validation_data)
+print("ass")
+

@@ -48,10 +48,26 @@
           {% endfor %}
         </select>
 
+                  <!--age dropdown menu-->
+        <select  name="travelTime" method="post" action="">
+          <option value="{{travelTime[0]}}" selected>{{travelTime[0]}}</option>
+          {% for travelTime in travelTime[1:] %}
+          <option  value="{{travelTime}}">{{travelTime}}</option>
+          {% endfor %}
+        </select>
+
+
+        <!--age dropdown menu-->
+        <select  name="studyTime" method="post" action="">
+          <option value="{{studyTime[0]}}" selected>{{studyTime[0]}}</option>
+          {% for studyTime in studyTime[1:] %}
+          <option  value="{{studyTime}}">{{studyTime}}</option>
+          {% endfor %}
+        </select>
+
         <input class="btn btn-default" type="submit" value="Predict">
 
       </form>
-
       {% if error %}
         <p class="error"><strong>result:</strong> {{ result }}
       {% endif %}
