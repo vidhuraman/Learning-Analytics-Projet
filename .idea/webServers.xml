@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="48219a77-f8da-4231-82ec-56f0b98d2b9e" name="KNN" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\Users\vidhu\OneDrive\Desktop\pythonn\Learning-Analytics-Projet-dev_kiarash (2)\Learning-Analytics-Projet-dev_kiarash\190124_Igrade_application" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
